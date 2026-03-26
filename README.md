@@ -1,5 +1,5 @@
 Technical Writing Samples — Ihomehe Agbebaku
-Three technical user guides written as part of my application for the CX Technical Content Design Intern role at Dropbox (Summer 2026).
+
 Guides included:
 
 How to manage a submission workflow in Airtable
