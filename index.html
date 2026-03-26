@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technical Writing Samples — Ihomehe Agbebaku</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0A0A0A;
+    --dark: #1A1A1A;
+    --mid: #555555;
+    --light: #888888;
+    --border: #E5E5E5;
+    --accent: #0061FF;
+    --accent-light: #EBF0FF;
+    --bg: #FAFAFA;
+    --white: #FFFFFF;
+    --note-bg: #F0F4FF;
+    --warning-bg: #FFF8E6;
+    --warning-border: #F5A623;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    -webkit-font-smoothing: antialiased;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .guide {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 56px 72px;
+    page-break-after: always;
+  }
+
+  .guide:last-child { page-break-after: auto; }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .masthead-left {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .masthead-right {
+    font-size: 9.5px;
+    color: var(--light);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: right;
+  }
+
+  /* ── HEADER ── */
+  .guide-header {
+    padding: 32px 0 24px;
+    border-bottom: 3px solid var(--black);
+    margin-bottom: 32px;
+  }
+
+  .guide-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .guide-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--black);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .guide-subtitle {
+    font-size: 13px;
+    color: var(--mid);
+    font-weight: 300;
+  }
+
+  /* ── META ROW ── */
+  .meta-row {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .meta-item {
+    font-size: 11px;
+    color: var(--light);
+    line-height: 1.5;
+  }
+
+  .meta-item strong {
+    display: block;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 2px;
+  }
+
+  .meta-item span {
+    color: var(--dark);
+    font-size: 12px;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    margin-bottom: 28px;
+  }
+
+  .section-label {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-top: 2px solid var(--accent);
+    padding-top: 8px;
+    margin-bottom: 12px;
+  }
+
+  .section p {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  .section p:last-child { margin-bottom: 0; }
+
+  /* ── STEPS ── */
+  .steps {
+    list-style: none;
+    padding: 0;
+    counter-reset: steps;
+  }
+
+  .steps li {
+    counter-increment: steps;
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+
+  .steps li::before {
+    content: counter(steps);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 24px;
+    background: var(--accent);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 50%;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  .step-content {
+    flex: 1;
+  }
+
+  .step-content strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 3px;
+  }
+
+  .step-content p {
+    font-size: 12.5px;
+    color: var(--mid);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .step-content code {
+    font-family: 'Courier New', monospace;
+    font-size: 11.5px;
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  /* ── CALLOUTS ── */
+  .callout {
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin: 16px 0;
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  .callout.note {
+    background: var(--note-bg);
+    border-left: 3px solid var(--accent);
+    color: var(--dark);
+  }
+
+  .callout.warning {
+    background: var(--warning-bg);
+    border-left: 3px solid var(--warning-border);
+    color: var(--dark);
+  }
+
+  .callout strong {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .callout.note strong { color: var(--accent); }
+  .callout.warning strong { color: var(--warning-border); }
+
+  /* ── FOOTER ── */
+  .guide-footer {
+    margin-top: 40px;
+    padding-top: 14px;
+    border-top: 2px solid var(--black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .guide-footer-name {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dark);
+  }
+
+  .guide-footer-right {
+    font-size: 10px;
+    color: var(--light);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  @media print {
+    .guide { page-break-after: always; }
+    .guide:last-child { page-break-after: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     GUIDE 1: AIRTABLE FOR PRISM
+═══════════════════════════════════════════════════ -->
+<div class="guide">
+  <div class="masthead">
+    <div class="masthead-left">Technical Writing Sample · 1 of 3</div>
+    <div class="masthead-right">Ihomehe Agbebaku · CX Technical Content Design · 2026</div>
+  </div>
+
+  <div class="guide-header">
+    <p class="guide-tag">User Guide · Airtable</p>
+    <h1 class="guide-title">How to manage a submission workflow in Airtable</h1>
+    <p class="guide-subtitle">A guide for editorial teams tracking high-volume submissions</p>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-item"><strong>Audience</strong><span>Editorial coordinators and managing editors</span></div>
+    <div class="meta-item"><strong>Context</strong><span>Used at PRISM International for tracking 4,000+ annual submissions</span></div>
+    <div class="meta-item"><strong>Time</strong><span>15 minutes to set up</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Overview</div>
+    <p>Airtable lets your editorial team track submissions, assign reviewers, and monitor status in one shared workspace. This guide walks through setting up a basic submission tracker from scratch.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Before you begin</div>
+    <p>You will need an Airtable account (free tier is sufficient for most editorial teams) and editor-level access to your team's workspace. Ask your workspace admin to invite you before starting.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Steps</div>
+    <ol class="steps">
+      <li>
+        <div class="step-content">
+          <strong>Create a new base</strong>
+          <p>From your Airtable home screen, click <code>+ Create</code> and select <code>Start from scratch</code>. Name your base clearly — for example, "PRISM Submissions 2026." This becomes your team's shared workspace for the submission cycle.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <strong>Set up your fields</strong>
+          <p>Your base opens with a default table. Rename it "Submissions" and add the following fields: <code>Submitter Name</code> (Single line text), <code>Genre</code> (Single select), <code>Date Received</code> (Date), <code>Assigned Reviewer</code> (Collaborator), <code>Status</code> (Single select: Unread, In Review, Accepted, Declined), <code>Notes</code> (Long text).</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <strong>Configure your Status field options</strong>
+          <p>Click the <code>Status</code> field header and select <code>Customize field</code>. Add your status options and assign a colour to each — for example, grey for Unread, yellow for In Review, green for Accepted, red for Declined. Colour coding makes it easy to read submission status at a glance.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <strong>Create a Kanban view for reviewers</strong>
+          <p>Click <code>+ Add view</code> in the left panel and select <code>Kanban</code>. Set the grouping field to <code>Status</code>. Reviewers can now drag submissions between columns as they move through the review process, without needing to edit records directly.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <strong>Share with your team</strong>
+          <p>Click <code>Share</code> in the top right corner. Invite team members by email and set their permission level. Assign <code>Editor</code> access to reviewers so they can update submission status. Assign <code>Commenter</code> access to readers who only need to view the tracker.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <strong>Filter by reviewer to manage assignments</strong>
+          <p>Use the <code>Filter</code> button in the toolbar to filter by <code>Assigned Reviewer</code>. Each team member can apply this filter to see only their assigned submissions, reducing confusion in high-volume cycles.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="callout note">
+      <strong>Note</strong>
+      If your team receives submissions via email or a form, Airtable's form view can capture submissions directly into the base. Go to <code>+ Add view</code> and select <code>Form</code> to set this up.
+    </div>
+
+    <div class="callout warning">
+      <strong>Important</strong>
+      Free Airtable workspaces have a 1,000-record limit per base. If your team processes more than 1,000 submissions per cycle, consider archiving closed records to a separate base at the end of each season, or upgrading to a paid plan.
+    </div>
+  </div>
+
+  <footer class="guide-footer">
+    <span class="guide-footer-name">Ihomehe Agbebaku</span>
+    <span class="guide-footer-right">Technical Writing Sample · 1 of 3</span>
+  </footer>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     GUIDE 2: CANVAS LMS
+═══════════════════════════════════════════════════ -->
+<div class="guide">
+  <div class="masthead">
+    <div class="masthead-left">Technical Writing Sample · 2 of 3</div>
+    <div class="masthead-right">Ihomehe Agbebaku · CX Technical Content Design · 2026</div>
+  </div>
+
+  <div class="guide-header">
+    <p class="guide-tag">User Guide · Canvas LMS</p>
+    <h1 class="guide-title">Getting started with Canvas: setting up your first course</h1>
+    <p class="guide-subtitle">A guide for new instructors building a course from scratch</p>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-item"><strong>Audience</strong><span>New instructors and teaching assistants</span></div>
+    <div class="meta-item"><strong>Context</strong><span>Used at UBC School of Creative Writing for onboarding teaching staff</span></div>
+    <div class="meta-item"><strong>Time</strong><span>20–30 minutes for initial setup</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Overview</div>
+    <p>Canvas organizes course content into modules — folders that group related material and guide students through your course in a clear sequence. This guide walks through building your first module, adding your syllabus, and publishing your course so students can access it.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Before you begin</div>
+    <p>You will need an active Canvas account with instructor-level access to your course shell. If your course shell has not been created yet, contact your department administrator. Your course will remain invisible to students until you publish it.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Steps</div>
+    <ol class="steps">
+      <li>
+        <div class="step-content">
+          <strong>Open your course</strong>
+          <p>Log in to Canvas and select your course from the Dashboard. If you do not see your course, click <code>All Courses</code> in the left navigation panel. Unpublished courses appear with a grey dot next to the course name.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <strong>Navigate to Modules</strong>
+          <p>In the left sidebar, click <code>Modules</code>. This is where you will organize all course content. A blank course will show no modules — this is expected.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <strong>Create your first module</strong>
+          <p>Click <code>+ Module</code> in the top right corner. Name your first module clearly — "Start Here" or "Week 1: Introduction" both work well. A clear module name helps students understand where to begin without needing to ask.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <strong>Add your syllabus to the module</strong>
+          <p>Click the <code>+</code> button inside your module and select <code>File</code>. Upload your syllabus document. Once uploaded, it will appear as an item inside the module. Students will be able to download it directly from the course page.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <strong>Record and upload a welcome video (recommended)</strong>
+          <p>A short welcome video — two to three minutes — reduces early student anxiety and sets expectations for the course. Record using Loom or any screen recording tool, then add the link to your module by clicking <code>+</code> and selecting <code>External URL</code>. Label it clearly: "Welcome from your instructor."</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <strong>Publish the module</strong>
+          <p>Click the grey circle icon next to your module name to publish it. The icon will turn green. Students cannot see module content until both the module and the course are published.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <strong>Publish the course</strong>
+          <p>Return to your course home page. Click the <code>Publish</code> button in the top right corner of the screen. Your course is now visible to enrolled students.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="callout note">
+      <strong>Note</strong>
+      You can add assignments, quizzes, and discussions at any time after your modules are set up. It is good practice to build your module structure first, then add assessment items inside each module so students can see how the course is sequenced.
+    </div>
+
+    <div class="callout warning">
+      <strong>Important</strong>
+      Publishing the course makes it visible to all enrolled students immediately. If your course is not ready for students to view, keep it unpublished until setup is complete.
+    </div>
+  </div>
+
+  <footer class="guide-footer">
+    <span class="guide-footer-name">Ihomehe Agbebaku</span>
+    <span class="guide-footer-right">Technical Writing Sample · 2 of 3</span>
+  </footer>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     GUIDE 3: DROPBOX FOR TEAMS
+═══════════════════════════════════════════════════ -->
+<div class="guide">
+  <div class="masthead">
+    <div class="masthead-left">Technical Writing Sample · 3 of 3</div>
+    <div class="masthead-right">Ihomehe Agbebaku · CX Technical Content Design · 2026</div>
+  </div>
+
+  <div class="guide-header">
+    <p class="guide-tag">User Guide · Dropbox</p>
+    <h1 class="guide-title">How to organize shared team folders in Dropbox</h1>
+    <p class="guide-subtitle">A guide for editorial and production teams managing shared assets</p>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-item"><strong>Audience</strong><span>Team leads and editorial coordinators</span></div>
+    <div class="meta-item"><strong>Context</strong><span>Used at PRISM International for shared asset management across print and digital production</span></div>
+    <div class="meta-item"><strong>Time</strong><span>10 minutes to set up</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Overview</div>
+    <p>Dropbox shared folders let your team access, upload, and edit files from one central location. This guide walks through creating a shared folder structure for an editorial or production team, setting permissions, and keeping your library organized over time.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Before you begin</div>
+    <p>You will need a Dropbox account with sufficient storage for your team's files. The person creating the shared folder becomes its owner by default and is responsible for managing access. Make sure you have the email addresses of the team members you want to invite.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Steps</div>
+    <ol class="steps">
+      <li>
+        <div class="step-content">
+          <strong>Create a top-level team folder</strong>
+          <p>In Dropbox, click <code>New folder</code> and name it after your team or project — for example, "PRISM 2026." This folder will be the root of your shared file structure. All subfolders and assets will live inside it.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <strong>Set up your subfolder structure</strong>
+          <p>Inside your top-level folder, create subfolders for each major category of content your team works with. For an editorial team, a clear structure might be: <code>Submissions</code>, <code>Design Assets</code>, <code>Issue Archives</code>, <code>Contracts and Admin</code>. Use consistent naming conventions across all subfolders — for example, always use the year prefix: "2026-Issue-04."</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <strong>Share the folder with your team</strong>
+          <p>Right-click the top-level folder and select <code>Share</code>. Enter your team members' email addresses and set their permission level. Choose <code>Can edit</code> for team members who upload and manage files. Choose <code>Can view</code> for stakeholders who only need to review assets.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <strong>Use consistent file naming</strong>
+          <p>Establish a naming convention before your team starts uploading. A reliable format is: <code>YYYY-MM-DD_ProjectName_Version</code> — for example, <code>2026-03-01_CoverDesign_v2.pdf</code>. Consistent naming makes files easier to search and reduces duplicate uploads.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <strong>Create a shared link for external collaborators</strong>
+          <p>If you need to share a specific file or folder with someone outside your team — a printer, a contributor, or a designer — right-click the item and select <code>Copy link</code>. Set the link permission to <code>Can view</code> to prevent unintended edits. Share the link directly rather than inviting them to the folder.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <strong>Archive completed projects</strong>
+          <p>At the end of each production cycle, move completed project folders into an <code>Archive</code> subfolder. This keeps your active workspace uncluttered while preserving access to past assets. Avoid deleting files unless you are certain they are no longer needed — deleted files can be recovered from Dropbox for up to 180 days on most plans.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="callout note">
+      <strong>Note</strong>
+      Dropbox syncs automatically across all devices. Team members with the Dropbox desktop app installed will see shared folder updates in real time without needing to refresh or re-download files.
+    </div>
+
+    <div class="callout warning">
+      <strong>Important</strong>
+      Only the folder owner can change permission settings or remove members. If your team lead changes, transfer folder ownership before they leave the organization. Go to the folder's sharing settings and select <code>Transfer ownership</code>.
+    </div>
+  </div>
+
+  <footer class="guide-footer">
+    <span class="guide-footer-name">Ihomehe Agbebaku</span>
+    <span class="guide-footer-right">Technical Writing Sample · 3 of 3</span>
+  </footer>
+</div>
+
+</body>
+</html>
